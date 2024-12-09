@@ -8,7 +8,7 @@ RUN apt-get update && \
 RUN ssh-keygen -A
 
 RUN useradd -ms /bin/bash matt
-RUN echo 'matt:password' | chpasswd
+RUN echo 'ruby:password' | chpasswd
 RUN echo 'root:password' | chpasswd
 
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config

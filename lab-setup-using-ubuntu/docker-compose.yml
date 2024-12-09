@@ -11,35 +11,35 @@ services:
       - ansible-home:/home/ansible
       - ansible-root:/root
     networks:
-      - ansible-playground-net
+      - ansible-playground-ubuntu
   
   server_1:
     build: ./servers-dockerfile
     container_name: server_1
     hostname: server_1
     volumes:
-      - matt-home:/home/matt
+      - ruby-home:/home/ruby
       - server_1-root:/root
     networks:
-      - ansible-playground-net
+      - ansible-playground-ubuntu
 
   server_2:
     build: ./servers-dockerfile
     container_name: server_2
     hostname: server_2
     volumes:
-      - matt-home:/home/matt
+      - ruby-home:/home/ruby
       - server_2-root:/root
     networks:
-      - ansible-playground-net
+      - ansible-playground-ubuntu
       
 volumes:
   ansible-home:
   ansible-root:
-  matt-home:
+  ruby-home:
   server_1-root:
   server_2-root:
 
 networks:
-  ansible-playground-net:
-    name: ansible-playground-net
+  ansible-playground-ubuntu:
+    name: ansible-playground-ubuntu
