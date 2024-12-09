@@ -7,6 +7,9 @@
 
 ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N ""
 
+
+echo "Executing ssh-copy-id"
+
 for user in ruby root
 do
   for server in server_1 server_2
@@ -14,3 +17,17 @@ do
     sshpass -f password.txt ssh-copy-id -o StrictHostKeyChecking=no ${user}@${server}
   done
 done
+
+echo "Executing Uname"
+
+for user in ruby root
+do
+  for server in server_1 server_2
+  do
+    sshpass -f password.tx ssh ${user}@${server} uname -a
+  done
+done
+
+
+
+
