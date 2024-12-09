@@ -20,11 +20,20 @@ In this repo, you'll find a Docker Compose file that sets up a fantastic playgro
 
 ## How to Play?
 
-1. Clone this repo to your local machine.
-2. Make sure you have Docker and Docker Compose installed.
-3. Navigate to the project directory in your terminal.
-4. Run `docker-compose up -d` to start the magic. Your Ansible playground is now alive!
-5. Start crafting your Ansible playbooks and manage those servers like a boss.
-6. Don't forget to tail `/dev/null` in the Ansible container, it's the cool thing to do!
+1. ```docker-compose up -d```
+2. ```docker container exec -it ansible bash```
+3. run copy-ssh-keys.ssh in master
+
+
+## Check if both servers are reachable.
+ ```ansible -i,server_1,server_2 all -m ping```
+
+## Check the uptime of both servers.
+```ansible -i server_1,server_2 all -a "uptime"```
+
+## Create a file with a fun message on both servers.
+```ansible -i server_1,server_2 all -m copy -a "content='Have fun with Ansible' dest=/tmp/fun.txt"```
+
+
 
 
