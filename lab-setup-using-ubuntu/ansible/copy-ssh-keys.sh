@@ -1,6 +1,6 @@
 ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N ""
 
-for user in matt root
+for user in ruby root
 do
   for server in server_1 server_2
   do
