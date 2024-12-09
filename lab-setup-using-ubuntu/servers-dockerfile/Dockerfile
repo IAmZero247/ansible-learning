@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 RUN ssh-keygen -A
 
-RUN useradd -ms /bin/bash matt
+RUN useradd -ms /bin/bash ruby
 RUN echo 'ruby:password' | chpasswd
 RUN echo 'root:password' | chpasswd
 
