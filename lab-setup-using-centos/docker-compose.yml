@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  ansible:
+    build: ./ansible-dockerfile
+    command: tail -F /dev/null
+    container_name: ansible
+    hostname: ansible
+    volumes:
+      - ./ansible:/ansible
+      - ansible-home:/home/ansible
+      - ansible-root:/root
+    networks:
+      - ansible-playground-centos
+  
+  server_1:
+    build: ./servers-dockerfile
+    container_name: server_1
+    hostname: server_1
+    volumes:
+      - ruby-home:/home/ruby
+      - server_1-root:/root
+    networks:
+      - ansible-playground-centos
+      
+  server_2:
+    build: ./servers-dockerfile
+    container_name: server_2
+    hostname: server_2
+    volumes:
+      - ruby-home:/home/ruby
+      - server_2-root:/root
+    networks:
+      - ansible-playground-centos   
+
+
+      
+volumes:
+  ansible-home:
+  ansible-root:
+  ruby-home:
+  server_1-root:
+  server_2-root:
+
+networks:
+  ansible-playground-centos:
+    name: ansible-playground-centos
